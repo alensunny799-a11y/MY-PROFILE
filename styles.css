@@ -275,7 +275,6 @@ h1 {
 }
 
 .skill-grid,
-.project-grid,
 .journey-grid,
 .contact-inner {
   display: grid;
@@ -312,9 +311,7 @@ h1 {
   color: var(--muted);
 }
 
-.project-grid {
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-}
+/* Replaced by project-carousel styles */
 
 .project-card {
   display: grid;
@@ -543,11 +540,49 @@ h1 {
   }
 }
 
+/* Project Carousel Styles */
+.project-carousel {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding: 1rem 0 2rem;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.project-carousel::-webkit-scrollbar {
+  height: 8px;
+}
+
+.project-carousel::-webkit-scrollbar-track {
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 10px;
+}
+
+.project-carousel::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #3B82F6, #06B6D4);
+  border-radius: 10px;
+}
+
+.project-carousel::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #06B6D4, #3B82F6);
+}
+
+.project-carousel .project-card {
+  flex: 0 0 auto;
+  width: 540px;
+}
+
+@media (max-width: 768px) {
+  .project-carousel .project-card {
+    width: 300px;
+  }
+}
+
 @media (max-width: 1024px) {
   .hero-inner,
   .contact-inner,
   .skill-grid,
-  .project-grid,
   .journey-grid {
     grid-template-columns: 1fr;
   }
